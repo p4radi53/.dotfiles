@@ -66,10 +66,11 @@ automatically-unhide-macos-hidden-apps = false
 # 'main' binding mode must be always presented
 # Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
-    cmd-h = 'focus left'
-    cmd-j = 'focus down'
-    cmd-k = 'focus up'
-    cmd-l = 'focus right'
+    # disabled, because of interference with other programs
+    # cmd-h = 'focus left'
+    # cmd-j = 'focus down'
+    # cmd-k = 'focus up'
+    # cmd-l = 'focus right'
 
     cmd-shift-h = 'move left'
     cmd-shift-j = 'move down'
@@ -107,6 +108,10 @@ automatically-unhide-macos-hidden-apps = false
     f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 
 # Browsing
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+run = "move-node-to-workspace B"
+
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
 run = "move-node-to-workspace B"
