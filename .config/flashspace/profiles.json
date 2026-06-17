@@ -1,0 +1,40 @@
+{
+  "profiles" : [
+    {
+      "id" : "468F213A-B104-44FF-90F4-7A0078BB54B1",
+      "name" : "Default",
+      "workspaces" : [
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "app.zen-browser.zen",
+              "iconPath" : "/Applications/Zen.app/Contents/Resources/firefox.icns",
+              "name" : "Zen"
+            }
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "B3E5C0B1-C011-4FC1-98DC-5ED884B670C9",
+          "name" : "browser",
+          "openAppsOnActivation" : false,
+          "shortcut" : "opt+1",
+          "symbolIconName" : "trash.fill"
+        },
+        {
+          "apps" : [
+            {
+              "autoOpen" : true,
+              "bundleIdentifier" : "com.mitchellh.ghostty",
+              "iconPath" : "/Applications/Ghostty.app/Contents/Resources/Ghostty.icns",
+              "name" : "Ghostty"
+            }
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "7BA8EBA0-2DCE-475A-8B8E-ED1EFD5075C1",
+          "name" : "terminal",
+          "openAppsOnActivation" : true,
+          "shortcut" : "opt+2"
+        }
+      ]
+    }
+  ]
+}
