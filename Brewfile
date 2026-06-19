@@ -98,6 +98,8 @@ brew "rust"
 brew "spicetify-cli"
 # Generate type safe Go from SQL
 brew "sqlc"
+# Cross-shell prompt for astronauts
+brew "starship"
 # Opinionated Lua code formatter
 brew "stylua"
 # Tool to build, change, and version infrastructure
@@ -112,8 +114,6 @@ brew "tree-sitter-cli"
 brew "typescript-language-server"
 # Programming language designed for robustness, optimality, and clarity
 brew "zig"
-# Fish-like fast/unobtrusive autosuggestions for zsh
-brew "zsh-autosuggestions"
 # Launcher for Coursier
 brew "coursier/formulas/coursier"
 # AeroSpace is an i3-like tiling window manager for macOS
