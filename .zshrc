@@ -1,30 +1,34 @@
-# Set up Oh My Zsh
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"  # You can change this to your preferred theme
+# Setup completion system
+setopt EXTENDED_GLOB
 
-# Enable plugins
-plugins=(git) # Consider adding useful plugins
-source $ZSH/oh-my-zsh.sh
+autoload -Uz compinit
+if [ -n "$HOME/.zcompdump"(#qN.mh+24) ]; then
+  compinit
+else
+  compinit -C
+fi
 
-# # NVM (Node Version Manager)
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # Load nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # Load nvm bash completion
+# Prompt theme: robbyrussell-style prompt, without Oh My Zsh
 
-# pipx (for Python executables)
-export PATH="$PATH:$HOME/.local/bin"  # Add pipx binaries to PATH
+autoload -Uz vcs_info
+setopt PROMPT_SUBST
+zstyle ':vcs_info:git:*' formats ' %F{red}(%b%F{yellow}%u%c%F{red})%f'
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '✗'
+zstyle ':vcs_info:*' stagedstr '✗'
+precmd() { vcs_info }
+# Arrow turns red if last command failed, green if it succeeded
+PROMPT='%(?:%F{green}➜:%F{red}➜) %F{cyan}%c%f${vcs_info_msg_0_} '
 
-# golang - add binaries
-export PATH="$PATH:$HOME/go/bin"
 
-# env variables
+# Executables
+export PATH="$PATH:$HOME/.local/bin" # pipx
+export PATH="$PATH:$HOME/go/bin" # golang
+
+# Load env variables
 set -a
-source ~/.env
+[ -f ~/.env ] && source ~/.env
 set +a
-
-# Enable Bash completion (if needed for certain commands)
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 # Aliases
 alias gs="git status"
@@ -36,12 +40,18 @@ set_java_17() {
   export JAVA_HOME="$(brew --prefix openjdk@17)/libexec/openjdk.jdk/Contents/Home"
 }
 
+# For Java installation use Coursier
+# For Python installation use UV
+
 # Dotfiles
 dotfiles() {
   /usr/bin/git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
 }
-# compdef dotfiles=git
-# alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles" --work-tree="$HOME"'
 compdef dotfiles=git
-dotfiles config --local status.showUntrackedFiles no
-dotfiles config --local core.excludesFile "$HOME/.config/dotfiles-ignore"
+
+lazydotfiles() {
+  lazygit --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
+}
+# Dotfiles - run once!
+# dotfiles config --local status.showUntrackedFiles no
+# dotfiles config --local core.excludesFile "$HOME/.config/dotfiles-ignore"
