@@ -52,6 +52,8 @@ compdef dotfiles=git
 lazydotfiles() {
   lazygit --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
 }
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Dotfiles - run once!
 # dotfiles config --local status.showUntrackedFiles no
 # dotfiles config --local core.excludesFile "$HOME/.config/dotfiles-ignore"
