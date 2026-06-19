@@ -1,4 +1,5 @@
 # Setup completion system
+eval "$(starship init zsh)"
 setopt EXTENDED_GLOB
 
 autoload -Uz compinit
@@ -7,19 +8,6 @@ if [ -n "$HOME/.zcompdump"(#qN.mh+24) ]; then
 else
   compinit -C
 fi
-
-# Prompt theme: robbyrussell-style prompt, without Oh My Zsh
-
-autoload -Uz vcs_info
-setopt PROMPT_SUBST
-zstyle ':vcs_info:git:*' formats ' %F{red}(%b%F{yellow}%u%c%F{red})%f'
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr '✗'
-zstyle ':vcs_info:*' stagedstr '✗'
-precmd() { vcs_info }
-# Arrow turns red if last command failed, green if it succeeded
-PROMPT='%(?:%F{green}➜:%F{red}➜) %F{cyan}%c%f${vcs_info_msg_0_} '
-
 
 # Executables
 export PATH="$PATH:$HOME/.local/bin" # pipx
@@ -54,7 +42,7 @@ lazydotfiles() {
   lazygit --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
 }
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Dotfiles - run once!
 dotfiles config --local status.showUntrackedFiles no
 dotfiles config --local core.excludesFile "$HOME/.config/dotfiles-ignore"
