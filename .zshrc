@@ -34,6 +34,7 @@ set +a
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit"
+alias ll="ls -laG"
 
 # Functions
 set_java_17() {
@@ -55,5 +56,5 @@ lazydotfiles() {
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Dotfiles - run once!
-# dotfiles config --local status.showUntrackedFiles no
-# dotfiles config --local core.excludesFile "$HOME/.config/dotfiles-ignore"
+dotfiles config --local status.showUntrackedFiles no
+dotfiles config --local core.excludesFile "$HOME/.config/dotfiles-ignore"
