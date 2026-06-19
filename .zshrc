@@ -1,5 +1,4 @@
 # Setup completion system
-eval "$(starship init zsh)"
 setopt EXTENDED_GLOB
 
 autoload -Uz compinit
@@ -8,6 +7,10 @@ if [ -n "$HOME/.zcompdump"(#qN.mh+24) ]; then
 else
   compinit -C
 fi
+
+# Enable starship
+eval "$(starship init zsh)"
+
 
 # Executables
 export PATH="$PATH:$HOME/.local/bin" # pipx
