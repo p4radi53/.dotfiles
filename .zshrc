@@ -49,3 +49,8 @@ lazydotfiles() {
 # Dotfiles - run once!
 dotfiles config --local status.showUntrackedFiles no
 dotfiles config --local core.excludesFile "$HOME/.config/dotfiles-ignore"
+
+# Tmux on startup
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+  tmux attach -t default || tmux new -s default -c /some/path
+fi
