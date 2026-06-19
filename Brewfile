@@ -104,6 +104,8 @@ brew "starship"
 brew "stylua"
 # Tool to build, change, and version infrastructure
 brew "terraform"
+# Simplified and community-driven man pages
+brew "tldr"
 # Terminal multiplexer
 brew "tmux"
 # Program that allows you to count code, quickly
