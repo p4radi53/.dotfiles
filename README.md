@@ -2,6 +2,8 @@
 
 This repo is managed using a bare git repository.
 
+Run lazygit on the dotfiles alias using `lazydotfiles`
+
 Setting up from scratch:
 ```bash
 git init --bare $HOME/.dotfiles
@@ -27,7 +29,7 @@ Contains configurations for:
 - nvim: Highly customized text editor configuration with plugins and key mappings.
 - ghostty: Terminal emulator settings for themes, fonts, and behavior.
 - bash: Shell configuration.
-- aerospace: i3-like window/tiling manager
+- flashspace: minimal window manager for MacOS
 - brewfile: homebrew installation list
 
 ---
