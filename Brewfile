@@ -112,6 +112,8 @@ brew "tokei"
 brew "tree-sitter-cli"
 # Language Server Protocol implementation for TypeScript wrapping tsserver
 brew "typescript-language-server"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
 # Programming language designed for robustness, optimality, and clarity
 brew "zig"
 # Launcher for Coursier
