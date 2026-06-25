@@ -1,5 +1,5 @@
 tap "coursier/formulas", trusted: true
-tap "homebrew/cask"
+tap "homebrew/cask", "https://github.com/Homebrew/homebrew-cask.git"
 tap "homebrew/services"
 tap "nikitabobko/tap", trusted: true
 # Official Amazon AWS command-line interface
@@ -68,6 +68,8 @@ brew "lazydocker"
 brew "lazygit"
 # Next-gen compiler infrastructure
 brew "llvm"
+# Language Server for the Lua language
+brew "lua-language-server"
 # Java-based project management
 brew "maven"
 # Run a Kubernetes cluster locally
@@ -114,14 +116,14 @@ brew "tokei"
 brew "tree-sitter-cli"
 # Language Server Protocol implementation for TypeScript wrapping tsserver
 brew "typescript-language-server"
-# Blazing fast terminal file manager written in Rust, based on async I/O
-brew "yazi"
 # Programming language designed for robustness, optimality, and clarity
 brew "zig"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Zsh port of Fish shell's history search
+brew "zsh-history-substring-search"
 # Launcher for Coursier
 brew "coursier/formulas/coursier"
-# AeroSpace is an i3-like tiling window manager for macOS
-cask "nikitabobko/tap/aerospace"
 # Terminal-based AI coding assistant
 cask "claude-code"
 # Client for the Dropbox cloud storage service
