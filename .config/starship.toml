@@ -1,2 +1,9 @@
+add_newline = false
+
 [aws]
 disabled = true
+
+[python]
+detect_files = ["requirements.txt", "pyproject.toml", "Pipfile"]
+detect_extensions = ["py"]
+detect_folders = [".venv", "venv"]
