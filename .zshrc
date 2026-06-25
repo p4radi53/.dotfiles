@@ -1,8 +1,12 @@
+# Uncomment to start profiling
+# zmodload zsh/zprof
+
+
 # Setup completion system
 setopt EXTENDED_GLOB
 
 autoload -Uz compinit
-if [ -n "$HOME/.zcompdump"(#qN.mh+24) ]; then
+if [[ -n "$HOME/.zcompdump"(#qN.mh+24) ]]; then
   compinit
 else
   compinit -C
@@ -47,10 +51,10 @@ lazydotfiles() {
 
 # ZSH plugins
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 # Dotfiles - run once!
-dotfiles config --local status.showUntrackedFiles no
-dotfiles config --local core.excludesFile "$HOME/.config/dotfiles-ignore"
+# dotfiles config --local status.showUntrackedFiles no
+# dotfiles config --local core.excludesFile "$HOME/.config/dotfiles-ignore"
 
 # Tmux on startup
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
@@ -60,3 +64,5 @@ fi
 grep_failed() {
   databricks jobs get-run-output "$1" | jq -r '.logs' | rg -m 1 -A 5 FAILED
 }
+# Uncomment to start profiling
+# zprof
