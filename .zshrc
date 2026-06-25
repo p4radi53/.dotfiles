@@ -56,3 +56,7 @@ dotfiles config --local core.excludesFile "$HOME/.config/dotfiles-ignore"
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
   tmux attach -t default || tmux new -s default -c /some/path
 fi
+
+grep_failed() {
+  databricks jobs get-run-output "$1" | jq -r '.logs' | rg -m 1 -A 5 FAILED
+}
