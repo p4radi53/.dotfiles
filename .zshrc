@@ -45,7 +45,9 @@ lazydotfiles() {
   lazygit --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
 }
 
-# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# ZSH plugins
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 # Dotfiles - run once!
 dotfiles config --local status.showUntrackedFiles no
 dotfiles config --local core.excludesFile "$HOME/.config/dotfiles-ignore"
